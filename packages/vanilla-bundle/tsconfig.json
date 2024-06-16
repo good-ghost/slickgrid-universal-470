@@ -1,0 +1,47 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": "src",
+    "declarationDir": "dist/types",
+    "outDir": "dist/esm",
+    "typeRoots": [
+      "./node_modules/@types",
+      "../../node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "references": [
+    {
+      "path": "../binding"
+    },
+    {
+      "path": "../common"
+    },
+    {
+      "path": "../custom-footer-component"
+    },
+    {
+      "path": "../empty-warning-component"
+    },
+    {
+      "path": "../event-pub-sub"
+    },
+    {
+      "path": "../pagination-component"
+    },
+    {
+      "path": "../utils"
+    }
+  ]
+}

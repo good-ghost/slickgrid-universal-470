@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bundle Library",
+      "type": "shell",
+      "command": "pnpm bundle",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Jest Unit Tests (watch)",
+      "type": "shell",
+      "command": "pnpm test:watch",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Jest Test Coverage",
+      "type": "shell",
+      "command": "pnpm test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Library Development",
+      "type": "shell",
+      "command": "pnpm dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare New Release",
+      "type": "shell",
+      "command": "pnpm new-version",
+      "problemMatcher": []
+    }
+  ]
+}

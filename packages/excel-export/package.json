@@ -1,0 +1,64 @@
+{
+  "name": "@slickgrid-universal/excel-export",
+  "version": "4.7.0",
+  "description": "Excel Export (xls/xlsx) Service.",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "node": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "scripts": {
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run bundle:esm && tsc --declaration",
+    "build:incremental": "tsc --incremental --declaration",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "dev": "pnpm build:incremental",
+    "bundle:cjs": "tsc --project tsconfig.bundle.json --outDir dist/cjs --module commonjs",
+    "bundle:esm": "tsc --project tsconfig.bundle.json --outDir dist/esm --module esnext --target es2021",
+    "bundle:types": "tsc --emitDeclarationOnly --declarationMap --outDir dist/types",
+    "bundle": "pnpm bundle:cjs"
+  },
+  "license": "MIT",
+  "author": "Ghislain B.",
+  "homepage": "https://github.com/ghiscoding/slickgrid-universal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghiscoding/slickgrid-universal.git",
+    "directory": "packages/excel-export"
+  },
+  "bugs": {
+    "url": "https://github.com/ghiscoding/slickgrid-universal/issues"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ],
+  "dependencies": {
+    "@slickgrid-universal/common": "workspace:~",
+    "@slickgrid-universal/utils": "workspace:~",
+    "excel-builder-vanilla": "^3.0.1",
+    "moment-mini": "^2.29.4"
+  },
+  "devDependencies": {
+    "@slickgrid-universal/event-pub-sub": "workspace:~"
+  },
+  "funding": {
+    "type": "ko_fi",
+    "url": "https://ko-fi.com/ghiscoding"
+  }
+}

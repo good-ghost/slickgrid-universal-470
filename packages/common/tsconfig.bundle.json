@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.bundle.json",
+  "compilerOptions": {
+    "outDir": "dist/cjs",
+    "types": [
+      "jest",
+      "node"
+    ],
+    "typeRoots": [
+      "../typings",
+      "./node_modules/@types",
+      "../../node_modules/@types"
+    ]
+  },
+  "include": [
+    "../typings",
+    "**/*"
+  ]
+}

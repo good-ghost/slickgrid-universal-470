@@ -1,0 +1,102 @@
+{
+  "name": "@slickgrid-universal/common",
+  "version": "4.7.0",
+  "description": "SlickGrid-Universal Common Code",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "node": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./dist/styles/*": "./dist/styles/*",
+    "./package.json": "./package.json"
+  },
+  "license": "MIT",
+  "author": "Ghislain B.",
+  "homepage": "https://github.com/ghiscoding/slickgrid-universal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghiscoding/slickgrid-universal.git",
+    "directory": "packages/common"
+  },
+  "bugs": {
+    "url": "https://github.com/ghiscoding/slickgrid-universal/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "scripts": {
+    "prebuild": "pnpm run clean",
+    "build": "pnpm run bundle:esm && tsc --declaration",
+    "postbuild": "run-s sass:build sass:copy",
+    "build:incremental": "tsc --incremental --declaration",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "dev": "node build-watch.mjs",
+    "bundle": "pnpm bundle:cjs",
+    "postbundle": "run-s sass:build sass:copy",
+    "bundle:cjs": "tsc --project tsconfig.bundle.json --outDir dist/cjs --module commonjs",
+    "bundle:esm": "tsc --project tsconfig.bundle.json --outDir dist/esm --module esnext --target es2021",
+    "bundle:types": "tsc --emitDeclarationOnly --declarationMap --outDir dist/types",
+    "sass-build-task:scss-compile:bootstrap": "sass src/styles/slickgrid-theme-bootstrap.scss dist/styles/css/slickgrid-theme-bootstrap.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass-build-task:scss-compile:material": "sass src/styles/slickgrid-theme-material.scss dist/styles/css/slickgrid-theme-material.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass-build-task:scss-compile:material-bare": "sass src/styles/slickgrid-theme-material.bare.scss dist/styles/css/slickgrid-theme-material.bare.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass-build-task:scss-compile:material-lite": "sass src/styles/slickgrid-theme-material.lite.scss dist/styles/css/slickgrid-theme-material.lite.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass-build-task:scss-compile:salesforce": "sass src/styles/slickgrid-theme-salesforce.scss dist/styles/css/slickgrid-theme-salesforce.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass-build-task:scss-compile:salesforce-bare": "sass src/styles/slickgrid-theme-salesforce.bare.scss dist/styles/css/slickgrid-theme-salesforce.bare.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass-build-task:scss-compile:salesforce-lite": "sass src/styles/slickgrid-theme-salesforce.lite.scss dist/styles/css/slickgrid-theme-salesforce.lite.css --style=compressed --quiet-deps --no-source-map --load-path=node_modules",
+    "sass:build": "run-p sass-build-task:scss-compile:*",
+    "postsass:build": "postcss --no-map --use cssnano --use autoprefixer --dir dist/styles/css dist/styles/css --style=compressed --quiet-deps --no-source-map",
+    "sass:copy": "cross-env copyfiles -f \"./src/styles/*.scss\" dist/styles/sass",
+    "sass:watch:bootstrap": "npm run sass-build-task:scss-compile:bootstrap -- --watch",
+    "sass:watch:material": "npm run sass-build-task:scss-compile:material -- --watch",
+    "sass:watch:salesforce": "npm run sass-build-task:scss-compile:salesforce -- --watch",
+    "sass:watch": "run-p sass:watch:*",
+    "sass:watch-all": "run-p \"sass-build-task:scss-compile:* --watch\" --"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ],
+  "dependencies": {
+    "@slickgrid-universal/binding": "workspace:~",
+    "@slickgrid-universal/event-pub-sub": "workspace:~",
+    "@slickgrid-universal/utils": "workspace:~",
+    "@types/dompurify": "^3.0.5",
+    "@types/sortablejs": "^1.15.8",
+    "autocompleter": "^9.2.1",
+    "dequal": "^2.0.3",
+    "excel-builder-vanilla": "3.0.1",
+    "flatpickr": "^4.6.13",
+    "isomorphic-dompurify": "^2.7.0",
+    "moment-mini": "^2.29.4",
+    "multiple-select-vanilla": "^3.1.0",
+    "sortablejs": "^1.15.2",
+    "un-flatten-tree": "^2.0.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "cssnano": "^6.1.2",
+    "npm-run-all2": "^6.1.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.75.0"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "funding": {
+    "type": "ko_fi",
+    "url": "https://ko-fi.com/ghiscoding"
+  }
+}

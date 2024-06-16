@@ -1,0 +1,20 @@
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.section-title {
+  margin: 15px 0 5px 0;
+  text-decoration: underline;
+}
+.text-utilities {
+  div {
+    border-right: 1px solid #bebebe;
+  }
+}
+.note-negative {
+  margin-bottom: 18px;
+  margin-top: -12px;
+}
+.bg-gray {
+  background-color: #3F3E3E;
+}

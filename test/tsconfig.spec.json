@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "baseUrl": "./",
+    "target": "es2021",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "lib": [
+      "es2021"
+    ],
+    "types": [
+      "@4tw/cypress-drag-drop",
+      "cypress",
+      "jest",
+      "node"
+    ],
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  },
+  "include": [
+    "**/*.spec.ts",
+    "src/typings/**/*.ts",
+    "**/*.d.ts"
+  ]
+}

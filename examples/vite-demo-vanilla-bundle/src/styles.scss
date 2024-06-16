@@ -1,0 +1,105 @@
+$slick-primary-color:#006DCC;
+$slick-link-color: #006DCC;
+
+/* make sure to add the @import the SlickGrid Bootstrap Theme AFTER the variables changes */
+// @import '@slickgrid-universal/common/dist/styles/sass/slickgrid-theme-material.scss';
+
+/** or SalesForce Theme */
+@import '@slickgrid-universal/common/dist/styles/sass/slickgrid-theme-salesforce.scss';
+
+@import './bulma.scss';
+
+$navbar-height: 52px;
+body {
+  height: calc(100vh - $navbar-height);
+}
+[data-theme=light] {
+  background-color: white;
+}
+[data-theme=dark] {
+  background-color: #33393e;
+}
+.demo-container.container {
+  padding: 15px 20px;
+  margin-top: $navbar-height;
+}
+.demo-container {
+  background-color: #fff;
+  h3 {
+    color: #333;
+  }
+  .subtitle {
+    color: #727272;
+  }
+}
+.demo-container.dark-mode {
+  background-color: #33393e;
+  color: #dddddd;
+  h3 {
+    color: #dddddd;
+  }
+  .subtitle {
+    color: #cbcbcb;
+  }
+}
+
+.fake-hyperlink {
+    cursor: pointer;
+    color: $slick-link-color;
+    &:hover {
+      text-decoration: underline;
+    }
+}
+.disabled {
+    color: #ccc;
+}
+
+.github-button-container {
+  position: relative;
+  top: 18px;
+  margin-left: 5px;
+}
+.faded {
+  opacity: 0.7;
+}
+.faded:hover {
+  opacity: 1;
+}
+.subtitle.code-link {
+  float: right;
+  margin-top: -15px;
+}
+.notification.is-narrow {
+  padding: 0.75rem 1.0rem;
+}
+input.is-narrow {
+  width: 55px;
+}
+.ml-8 {
+  margin-left: 50px;
+}
+.float-right {
+  float: right;
+}
+.action-btn {
+  width: 35px;
+  margin-top: -1px;
+}
+.text-green {
+  color: green;
+}
+.text-violet {
+  color: #659bff;
+}
+.text-bluenavy {
+  color: #003597;
+}
+.text-red {
+  color: red;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
+.columns:not(:last-child) {
+  margin-bottom: calc(1.5rem - 0.9rem);
+}

@@ -1,0 +1,74 @@
+{
+  "name": "@slickgrid-universal/vanilla-bundle",
+  "version": "4.7.0",
+  "description": "Vanilla Slick Grid Bundle - Framework agnostic the output is to be used in vanilla JS/TS - Written in TypeScript and we also use Vite to bundle everything into a single JS file.",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "node": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "scripts": {
+    "prebuild": "pnpm run clean",
+    "build": "tsc --build",
+    "postbuild": "pnpm run bundle:cjs",
+    "build:incremental": "tsc --incremental --declaration",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "dev": "pnpm build:incremental",
+    "bundle": "pnpm bundle:cjs",
+    "bundle:cjs": "tsc --project tsconfig.bundle.json --outDir dist/cjs --module commonjs",
+    "bundle:esm": "tsc --project tsconfig.bundle.json --outDir dist/esm --module esnext --target es2021",
+    "bundle:types": "tsc --emitDeclarationOnly --declarationMap --outDir dist/types",
+    "test": "echo testing slickgrid-universal slickgrid-vanilla-bundle code"
+  },
+  "license": "MIT",
+  "author": "Ghislain B.",
+  "homepage": "https://github.com/ghiscoding/slickgrid-universal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghiscoding/slickgrid-universal.git",
+    "directory": "packages/vanilla-bundle"
+  },
+  "bugs": {
+    "url": "https://github.com/ghiscoding/slickgrid-universal/issues"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ],
+  "dependencies": {
+    "@slickgrid-universal/binding": "workspace:~",
+    "@slickgrid-universal/common": "workspace:~",
+    "@slickgrid-universal/custom-footer-component": "workspace:~",
+    "@slickgrid-universal/empty-warning-component": "workspace:~",
+    "@slickgrid-universal/event-pub-sub": "workspace:~",
+    "@slickgrid-universal/pagination-component": "workspace:~",
+    "@slickgrid-universal/utils": "workspace:~",
+    "dequal": "^2.0.3",
+    "flatpickr": "^4.6.13",
+    "sortablejs": "^1.15.2",
+    "whatwg-fetch": "^3.6.20"
+  },
+  "devDependencies": {
+    "@slickgrid-universal/graphql": "workspace:~",
+    "@types/sortablejs": "^1.15.8"
+  },
+  "funding": {
+    "type": "ko_fi",
+    "url": "https://ko-fi.com/ghiscoding"
+  }
+}
