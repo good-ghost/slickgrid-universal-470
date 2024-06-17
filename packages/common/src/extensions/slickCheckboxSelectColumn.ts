@@ -218,15 +218,15 @@ export class SlickCheckboxSelectColumn<T = any> {
    * @returns
    */
   createCheckboxElement(inputId: string, checked = false) {
-    const fragmentElm = new DocumentFragment();
-    fragmentElm.appendChild(
+    const checkboxElm = this.gridOptions?.preventDocumentFragmentUsage ? document.createElement('span') : new DocumentFragment();
+    checkboxElm.appendChild(
       createDomElement('input', { id: inputId, type: 'checkbox', checked, ariaChecked: String(checked) })
     );
-    fragmentElm.appendChild(
+    checkboxElm.appendChild(
       createDomElement('label', { htmlFor: inputId })
     );
 
-    return fragmentElm;
+    return checkboxElm;
   }
 
   getColumnDefinition(): Column {
